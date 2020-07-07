@@ -15,7 +15,9 @@ def webhook():
     print(json.dumps(req, indent=4))
 
     res= makeResponse(req)
+    
     res= json.dumps(req, indent=4)
+    #print res
     r= make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -30,11 +32,11 @@ def makeResponse(req):
     weather=json_object['list']
     for i in range(0,30):
         if date in weather[i]['dt_txt']:
-            condition=weather[i]['weather'][0]['description']
+            condition = weather[i]['weather'][0]['description']
             break
-    speech= "The forecast for"+city+"for"+date+"is"+condition
+    speech= "The forecast for" +city+ "for" +date+ "is" +condition
     return{
-        "speech":speech,
+        "speech":speech, 
         "displayText":speech,
         "source":"apiai-weather-webhook"
         }
