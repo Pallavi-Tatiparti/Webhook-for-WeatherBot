@@ -33,10 +33,10 @@ def makeResponse(req):
             condition=weather[i]['weather'][0]['description']
             break
     speech= "The forecast for"+city+"for"+date+"is"+condition
-    return{#dictionary
-    "speech":speech,
-    "displayText":speech,
-    "source":"apiai-weather-webhook"
+    return{
+        "speech":speech,
+        "displayText":speech,
+        "source":"apiai-weather-webhook"
         }
 
 if __name__=='__main__':
